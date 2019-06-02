@@ -51,12 +51,12 @@ void Bus::fill(istream & is)
 	}
 }
 
-ostream & operator<<(ostream & os, const Bus B) {
-	B.printOut(os);
-	return os;
-}
-
-istream & operator>>(istream & is, Bus & B) {
-	B.fill(is);
-	return is;
-}
+//ostream & operator<<(ostream & os, const Bus B) {
+//	B.printOut(os);
+//	return os;
+//}
+//
+//istream & operator>>(istream & is, Bus & B) {
+//	B.fill(is);
+//	return is;
+//}

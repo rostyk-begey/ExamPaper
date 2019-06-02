@@ -2,11 +2,13 @@
 
 Taxi::Taxi()
 {
+	Transport::numOfSeats = 4;
 }
 
 Taxi::Taxi(string _id, double price, int maxSpd, double km = 0) : Transport(_id, price, km)
 {
 	maxSpeed = maxSpd;
+	Transport::numOfSeats = 4;
 }
 
 
@@ -52,12 +54,12 @@ void Taxi::fill(istream & is)
 	}
 }
 
-ostream & operator<<(ostream & os, const Taxi & T) {
-	T.printOut(os);
-	return os;
-}
-
-istream & operator>>(istream & is, Taxi & T) {
-	T.fill(is);
-	return is;
-}
+//ostream & operator<<(ostream & os, const Taxi & T) {
+//	T.printOut(os);
+//	return os;
+//}
+//
+//istream & operator>>(istream & is, Taxi & T) {
+//	T.fill(is);
+//	return is;
+//}
