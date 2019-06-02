@@ -2,11 +2,15 @@
 
 
 
-Transport::Transport(string _id, double price, double km = 0)
+Transport::Transport()
+{
+}
+
+Transport::Transport(string _id, double cost, double km = 0)
 {
 	this->id = _id;
 	this->kilometrage = km;
-	this->tripPrice = price;
+	this->cost = cost;
 }
 
 
@@ -30,7 +34,7 @@ void Transport::order(double km, int passengers)
 }
 
 ostream & operator<<(ostream & os, const Transport & T) {
-	os << T.toString();
+	T.printOut(os);
 	return os;
 }
 

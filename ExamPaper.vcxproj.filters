@@ -58,6 +58,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="buses.txt" />
+    <Text Include="buses.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="taxis.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

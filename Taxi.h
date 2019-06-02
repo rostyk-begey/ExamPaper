@@ -9,10 +9,11 @@ protected:
 	int numOfSeats = 4;
 	int maxSpeed;
 public:
+	Taxi();
 	Taxi(string, double, int, double);
 	~Taxi();
-	double getPrice(double km, int passengers) const;
-	string toString() const;
-	void fiil(istream & is);
+	double getTripPrice(double km, int passengers) const;
+	void printOut(ostream & os) const;
+	void fill(istream & is);
 };
 

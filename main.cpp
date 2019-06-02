@@ -5,33 +5,51 @@
 #include <fstream>
 #include <algorithm>
 #include <sstream>
+#include <iterator>
 
 using namespace std;
 
+
+template <typename T, typename C>
+void createColection(string file, C & container);
+
 int main()
 {
-	ifstream finBus("buse.txt");
-	vector<int> v;
-	string busStr;
-	while (finBus>>busStr)
+	typedef vector <Transport *> transportContainer;
+	transportContainer b;
+	transportContainer t;
+	createColection<Bus, transportContainer>("buses.txt", b);
+	createColection<Taxi, transportContainer>("taxis.txt", t);
+	for (auto el : b)
 	{
-		stringstream busStream;
-		string type;
-		string id;
-		string price;
-		string cooler;
-		string km;
-		
-		busStream >> type;
-		busStream >> id;
-		busStream >> price;
-		busStream >> cooler;
-		busStream >> km;
-
-		Bus b(id, stod(price), cooler=="1", km);
-		//Bus b1;
-		//busStream >> b1;
+		cout << (*el) << endl;
 	}
 	system("pause");
 	return 0;
+}
+
+template <typename T, typename C>
+void createColection(string file, C & container)
+{
+	try
+	{
+		ifstream fin(file);
+		string line;
+		if (fin.is_open())
+		{
+			while (getline(fin, line))
+			{
+				stringstream stream;
+				stream << line;
+
+				Transport *elem = new T;
+				stream >> (*elem);
+				container.push_back(elem);
+			}
+		}
+	}
+	catch (const std::exception&ex)
+	{
+		cout << ex.what() << endl;
+	}
 }

@@ -6,14 +6,15 @@ class Bus :
 	public Transport
 {
 protected:
-	int numOfSeats = 50;
 	bool hasCooler;
 public:
 	Bus();
 	Bus(string, double, bool, double);
 	~Bus();
 	double getTripPrice(double) const;
-	string toString() const;
+	void printOut(ostream & os) const;
 	void fill(istream & is);
+	friend ostream & operator<<(ostream & os, const Bus B);
+	friend istream & operator>>(istream & is, Bus & B);
 };
 

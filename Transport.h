@@ -10,14 +10,17 @@ class Transport
 protected:
 	string id;
 	int kilometrage;
-	int tripPrice;
+	int cost;
 	int numOfSeats;
+	Transport();
 	Transport(string, double, double);
 public:
 	virtual ~Transport();
-	virtual double getTripPrice() const = 0;
+	//virtual double getTripPrice(double, int) const = 0;
 	virtual void fill(istream & is) = 0;
-	virtual string toString() const = 0;
+	virtual void printOut(ostream &) const = 0;
 	virtual void order(double _km, int passengers);
+	friend ostream & operator<<(ostream & os, const Transport & T);
+	friend istream & operator>>(istream & is, Transport & T);
 };
 
